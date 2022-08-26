@@ -17,6 +17,17 @@ namespace ClassLibrary
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
         /// <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
+        
+        public static int Count {get; set;} = 0;
+        private string Name {get; set;}
+
+        public Train(string name)
+        {
+            this.Name = name;
+            Count++;
+            //Console.WriteLine("Se ha utilizado el constructor");
+        }
+        
         public bool IsEngineStarted { get; private set; }
 
         /// <summary>
@@ -56,5 +67,11 @@ namespace ClassLibrary
             Console.Write("The engines are already stopped");
             return this.IsEngineStarted;
         }
+
+        ~Train()
+        {
+            Count--;
+            // Console.WriteLine("Se ha utilizado el destructor");
+        } 
     }
 }
