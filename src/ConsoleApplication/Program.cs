@@ -19,7 +19,6 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine(int.MaxValue);
             Test_1(100);
             GC.Collect();                   // Necesito llamar a GC.
             GC.WaitForPendingFinalizers();  // De lo contrario no se ejecuta el destructor.
